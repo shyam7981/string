@@ -1,9 +1,4 @@
 package string;
-
-
-
-
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -12,28 +7,26 @@ import static org.mockito.Mockito.when;
 import org.junit.Test;
 
 
-public class valid_brackets_tests {
-
-}
-
-	@Test
-	public void isValidOrNot() {
+public class valid_brackets_tests 
+{
+@Test
+	public void areBracketsBalanced() {
 	
-		ValidParanthesis vp=mock(ValidParanthesis.class);
+		Valid_Brackets vb=mock(Valid_Brackets.class);
 		
-		when(vp.isValid("({})")).thenReturn(true);
+		when(vb.areBracketsBalanced("({})")).thenReturn(true);
 		
-		assertTrue(vp.isValid("({})"));
+		assertTrue(vb.areBracketsBalanced("({})"));
 	}
 	
 	@Test
 	public void isValidOrNot2() {
 	
-		ValidParanthesis vp=mock(ValidParanthesis.class);
+		Valid_Brackets vb=mock(Valid_Brackets.class);
 		
-		when(vp.isValid("()[]{)}")).thenReturn(false);
+		when(vb.areBracketsBalanced("()[]{)}")).thenReturn(false);
 		
-		assertFalse(vp.isValid("()[]{)}"));
+		assertFalse(vb.areBracketsBalanced("()[]{)}"));
 	}
 	
 }

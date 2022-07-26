@@ -1,31 +1,19 @@
 package string;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
-
-public class Valid_Brackets {
-	
+public class Valid_Brackets {	
 	 static boolean areBracketsBalanced(String expr)
-	    {
-	        // Using ArrayDeque is faster than using Stack class
+	    {       
 	        Deque<Character> stack
-	            = new ArrayDeque<Character>();
-	 
-	        // Traversing the Expression
+	            = new ArrayDeque<Character>();	        
 	        for (int i = 0; i < expr.length(); i++)
 	        {
-	            char x = expr.charAt(i);
-	 
+	            char x = expr.charAt(i);	 
 	            if (x == '(' || x == '[' || x == '{')
-	            {
-	                // Push the element in the stack
+	            {	                
 	                stack.push(x);
 	                continue;
-	            }
-	 
-	            // If current character is not opening
-	            // bracket, then it must be closing. So stack
-	            // cannot be empty at this point.
+	            }   
 	            if (stack.isEmpty())
 	                return false;
 	            char check;
@@ -48,22 +36,18 @@ public class Valid_Brackets {
 	                    return false;
 	                break;
 	            }
-	        }
-	 
-	        // Check Empty Stack
+	        }	        
 	        return (stack.isEmpty());
-	    }
-	 
-	 
+	    } 
 	 public static void main(String[] args)
 	    {
-	        String expr = "({})";
-	 
-	        // Function call
-	        if (areBracketsBalanced(expr))
+	        String[] str = {"()", "()[]{}", "(]", "([)]" ,"{[]}"};  
+	        for (int i=0; i<str.length; i++)  
+	        {  
+	         if (areBracketsBalanced(str[i]))
 	            System.out.println("true ");
 	        else
 	            System.out.println("false ");
+	        }
 	    }
-
 }
